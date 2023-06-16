@@ -1,17 +1,14 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react' 
-import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useRecipeStates } from '../Context/Context'
 import { routes } from '../utils/routes'
-import Pokemon from '../Pages/Pokemon'
 
-const Navbar = ({name, setName}) => {
 
+const Navbar = () => {
+  const {setSearch} = useRecipeStates()
   const navigate = useNavigate()
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-  }
-
+  
   return (
     <div className='navbar'>
         <div className='links'>
@@ -24,10 +21,7 @@ const Navbar = ({name, setName}) => {
             <Link to={routes.pokelist}><h4 className='link'>Poke Lista</h4></Link>
             
         </div>
-
-        <input type="text" value={name} onChange={(event) => setName(event.target.value)}/>
-        <button onClick={handleSubmit}>Poke Busqueda</button>
-
+        <input className='search' type="text" onBlur={(e) => setSearch(e.target.value)}/>
     </div>
   )
 }
