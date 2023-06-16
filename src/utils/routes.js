@@ -3,5 +3,7 @@ export const routes = {
     contact: '/contacto',
     about: '/acercadenos',
     recipes: '/recetas',
-    pageNotFound: '*'
+    pageNotFound: '*',
+    pokemon: '/pokemon/:name',
+    pokelist: '/lista'
 }

@@ -7,7 +7,7 @@ const Recipes = () => {
     const [recipes, setRecipes] = useState([])
     const [search, setSearch] = useState('')
 
-    const apiKey = '68d481a0fbc340308fbf934f836ee8c6'
+    const apiKey = '044e49796e7744febbfae2f8872d03b4'
     const url = `https://api.spoonacular.com/food/search?apiKey=${apiKey}&query=${search}&number=10`;
     // https://api.spoonacular.com/recipes/{id}/information
     useEffect(() => {

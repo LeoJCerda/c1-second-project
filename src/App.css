@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 .navbar{
-  background-color: rgb(50, 127, 127);
+  background-color: rgb(223, 239, 239);
   display: flex;
   justify-content: space-between;
   align-items: center;
