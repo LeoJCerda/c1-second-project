@@ -19,6 +19,7 @@ const Detail = () => {
     }, [])
 
     console.log(detail)
+    console.log(params);
   return (
     <div>
         Detail n° {params.id}

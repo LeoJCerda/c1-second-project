@@ -16,10 +16,7 @@ const Navbar = () => {
             <Link to={routes.home}><h4 className='link'>Home</h4></Link>
             <Link to={routes.contact}><h4 className='link'>Contact</h4></Link>
             <Link to={routes.about}><h4 className='link'>About</h4></Link>
-            <Link to={routes.recipes}><h4 className='link'>Recetas</h4></Link>
-            <Link to={routes.pokemon}><h4 className='link'>pokemon</h4></Link>
-            <Link to={routes.pokelist}><h4 className='link'>Poke Lista</h4></Link>
-            
+            <Link to={routes.recipes}><h4 className='link'>Recetas</h4></Link>    
         </div>
         <input className='search' type="text" onBlur={(e) => setSearch(e.target.value)}/>
     </div>

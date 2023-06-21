@@ -8,7 +8,7 @@ import { useRecipeStates } from '../Context/Context'
 
 const Recipes = () => {
     const [recipes, setRecipes] = useState([])
-    const {search} = useRecipeStates()
+    const [search, setSearch] = useState('')
 
     const apiKey = '044e49796e7744febbfae2f8872d03b4'
     const url = `https://api.spoonacular.com/food/search?apiKey=${apiKey}&query=${search}&number=10`;
@@ -20,6 +20,7 @@ const Recipes = () => {
     console.log(recipes)
   return (
     <div>
+        <input type="text" onBlur={(e) => setSearch(e.target.value)} />
         {recipes.map((recipe) => (
             <Link to={'/detalle/' + recipe.id} key={recipe.id}>
                 <li>{recipe.name}</li>
