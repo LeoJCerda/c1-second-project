@@ -5,7 +5,7 @@ const RecipeStates = createContext()
 const Context = ({children}) => {
     const [search, setSearch] = useState('')
     const [favs, setFavs] = useState([])
-    console.log(favs)
+    
     return (
         <RecipeStates.Provider value={{
             search, setSearch,

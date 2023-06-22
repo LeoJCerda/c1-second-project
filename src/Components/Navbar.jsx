@@ -8,7 +8,16 @@ import { routes } from '../utils/routes'
 const Navbar = () => {
   const {setSearch} = useRecipeStates()
   const navigate = useNavigate()
+<<<<<<< HEAD
   
+=======
+
+
+  const logout = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
+  }
+>>>>>>> 0cbf8052012323980bc095984a9488a8cda075f9
   return (
     <div className='navbar'>
         <div className='links'>
@@ -19,6 +28,7 @@ const Navbar = () => {
             <Link to={routes.recipes}><h4 className='link'>Recetas</h4></Link>    
         </div>
         <input className='search' type="text" onBlur={(e) => setSearch(e.target.value)}/>
+        <button onClick={logout}>Logout</button>
     </div>
   )
 }
