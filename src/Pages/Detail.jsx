@@ -1,14 +1,12 @@
 import axios from 'axios'
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecipeStates } from '../Context/Context'
 
 const Detail = () => {
     const [detail, setDetail] = useState({})
     const params = useParams()
-    const {setFavs, favs} = useRecipeStates()
+    const {dispatch} = useRecipeStates()
 
     const apiKey = '68d481a0fbc340308fbf934f836ee8c6'
     const url = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${apiKey}`
@@ -27,8 +25,9 @@ const Detail = () => {
         <p>Ingredientes: </p>
         {detail.extendedIngredients?.map((ingredients) => <li key={ingredients.id}>{ingredients.name}</li>)}
         <button
-          onClick={() => setFavs((prevFavs) => [...prevFavs ,detail])}
-          // onClick={() => setFavs([...favs ,detail])} Lo mismo que la linea de arriba
+          onClick={() => dispatch({type: 'ADD_FAV', payload: detail})}
+          // onClick={() => setFavs((prevFavs) => [...prevFavs ,detail])}
+          // onClick={() => setFavs([...favs, detail])} Lo mismo que la linea de arriba
         >⭐</button>
     </div>
   )

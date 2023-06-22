@@ -11,18 +11,13 @@ import Detail from './Pages/Detail'
 import Layout from './Layout/Layout'
 import { Auth } from './utils/Auth'
 import Login from './Pages/Login'
-import { useEffect } from 'react'
-import Counter from './Clase 19/Counter'
-import UserList from './Clase 19/UserList'
+import Favs from './Pages/Favs'
 
 function App() {
 
   return (
     <div className='app'>
-      
-      <Counter/>
-      <UserList/>
-      {/* <Routes>
+      <Routes>
         {Auth() ? 
         <>
           <Route path='/' element={<Layout/>}>
@@ -31,6 +26,7 @@ function App() {
             <Route path={routes.about} element={<About/>}/>
             <Route path={routes.recipes} element={<Recipes/>}/>
             <Route path={routes.detail} element={<Detail/>}/>
+            <Route path={routes.favs} element={<Favs/>}/>
             <Route path={routes.pageNotFound} element={<PageNotFound/>}/>
           </Route>
         </>
@@ -38,7 +34,7 @@ function App() {
         <Route path='/' element={<Login/>}/> 
         }
         
-      </Routes> */}
+      </Routes>
     </div>
   )
 }

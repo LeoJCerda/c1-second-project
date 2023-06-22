@@ -1,15 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import { useEffect } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 
-const RecipeStates = createContext()
+export const RecipeStates = createContext()
+
+const initialState = JSON.parse(localStorage.getItem('favs')) || []
+
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'ADD_FAV' :
+            return [...state, action.payload]
+        case 'DELETE_FAV':
+            return [action.payload] //hay que completar
+        default:
+            throw new Error()
+    }
+}
 
 const Context = ({children}) => {
     const [search, setSearch] = useState('')
-    const [favs, setFavs] = useState([])
     
+    const [state, dispatch] = useReducer(reducer, initialState)
+    // const [favs, setFavs] = useState([])
+    
+
+    useEffect(() => {
+        console.log(state)
+        localStorage.setItem('favs', JSON.stringify(state))
+    }, [state])
+
     return (
         <RecipeStates.Provider value={{
             search, setSearch,
-            favs, setFavs
+            state, dispatch
+            // favs, setFavs
         }}>
             {children}
         </RecipeStates.Provider>

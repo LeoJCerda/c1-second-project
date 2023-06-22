@@ -12,7 +12,7 @@ const Login = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
         <h3>Debe loguear para poder ingresar a la página</h3>
         <input type="text" onChange={(e) => setUser({...user, userName: e.target.value})}/>
         <input type="password" onChange={(e) => setUser({...user, password: e.target.value})}/>
